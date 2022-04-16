@@ -68,7 +68,7 @@ router.post('/', (req, res) => {
     });
 });
 
-router.post('/login', withAuth, (req, res) => {
+router.post('/login', (req, res) => {
   // expects {username: 'name', password: 'password1234'}
   User.findOne({
     where: {
