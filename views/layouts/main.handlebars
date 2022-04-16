@@ -12,17 +12,18 @@
 <body>
   <div class="wrapper">
     <header>
-      <h1>
-        <a href="/">Hess Tech Blog</a>
-      </h1>
-        <nav>
+        <nav class="navbar">
+          <a href="/" class="navbar-item">Home</a>
+          <a href="/dashboard" class="navbar-item">Dashboard</a>
           {{#if loggedIn}}
-          <a href="/dashboard">dashboard</a>
-          <button id="logout" class="btn-no-style">logout</button>
+          <button id="logout" class="button is-primary navbar-item">logout</button>
           {{else}}
-          <a href="/login">login</a>
+          <a href="/login" class="button is-primary navbar-item">login</a>
           {{/if}}
         </nav>
+      <h1>
+        <a href="/" class="has-background-success has-text-light">Hess Tech Blog</a>
+      </h1>
     </header>
     <main>
       {{{ body }}}
