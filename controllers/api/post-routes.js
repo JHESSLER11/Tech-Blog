@@ -10,8 +10,8 @@ router.get('/', (req, res) => {
       'id',
       'title',
       'contents',
-      'created_at',
-      'user_id'
+      'user_id',
+      'created_at'
     ],
     order: [['created_at', 'DESC']],
     include: [
@@ -45,8 +45,8 @@ router.get('/:id', (req, res) => {
       'id',
       'title',
       'contents',
-      'created_at',
-      'user_id'
+      'user_id',
+      'created_at'
     ],
     include: [
       {
@@ -77,11 +77,11 @@ router.get('/:id', (req, res) => {
 });
 
 router.post('/', (req, res) => {
-  // expects {title: 'Taskmaster goes public!', post_url: 'https://taskmaster.com/press', user_id: 1}
+  console.log("what is here", req.body.title)
   Post.create({
     title: req.body.title,
-    post_url: req.body.contents,
-    user_id: req.body.user_id
+    contents: req.body.contents,
+    user_id: req.session.user_id
   })
     .then(dbPostData => res.json(dbPostData))
     .catch(err => {
@@ -93,7 +93,8 @@ router.post('/', (req, res) => {
 router.put('/:id', (req, res) => {
   Post.update(
     {
-      title: req.body.title
+      title: req.body.title,
+      contents: req.body.contents
     },
     {
       where: {

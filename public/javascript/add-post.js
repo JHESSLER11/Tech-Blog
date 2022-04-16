@@ -3,8 +3,10 @@ async function newFormHandler(event) {
   
     const title = document.querySelector('input[name="post-title"]').value;
     const contents = document.querySelector('input[name="contents"]').value;
+    console.log("title here", title)
   
-    const response = await fetch(`/api/posts`, {
+    if (title && contents) {
+      const response = await fetch(`/api/posts`, {
       method: 'POST',
       body: JSON.stringify({
         title,
@@ -21,5 +23,6 @@ async function newFormHandler(event) {
       alert(response.statusText);
     }
   }
+}
   
   document.querySelector('.new-post-form').addEventListener('submit', newFormHandler);
