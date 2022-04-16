@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { User } = require('../../models');
+const { User, Comments, Post } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 // get all users
@@ -26,19 +26,13 @@ router.get('/:id', (req, res) => {
         attributes: ['id', 'title', 'post_url', 'created_at']
       },
       {
-        model: Comment,
+        model: Comments,
         attributes: ['id', 'comment_text', 'created_at'],
         include: {
           model: Post,
           attributes: ['title']
         }
       },
-      {
-        model: Post,
-        attributes: ['title'],
-        through: Vote,
-        as: 'voted_posts'
-      }
     ]
   })
     .then(dbUserData => {
@@ -54,11 +48,9 @@ router.get('/:id', (req, res) => {
     });
 });
 
-router.post('/', withAuth, (req, res) => {
-  // expects {username: 'Lernantino', email: 'lernantino@gmail.com', password: 'password1234'}
+router.post('/', (req, res) => {
   User.create({
     username: req.body.username,
-    email: req.body.email,
     password: req.body.password
   })
     .then(dbUserData => {
@@ -77,10 +69,10 @@ router.post('/', withAuth, (req, res) => {
 });
 
 router.post('/login', withAuth, (req, res) => {
-  // expects {email: 'lernantino@gmail.com', password: 'password1234'}
+  // expects {username: 'name', password: 'password1234'}
   User.findOne({
     where: {
-      email: req.body.email
+      username: req.body.username
     }
   }).then(dbUserData => {
     if (!dbUserData) {
