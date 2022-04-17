@@ -21,3 +21,5 @@ async function editPostHandler(event) {
           }
          }
 }
+
+document.querySelector('.edit-post-form').addEventListener('submit', editPostHandler)
