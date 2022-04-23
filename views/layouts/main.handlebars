@@ -11,25 +11,25 @@
 
 <body>
   <div class="wrapper">
-    <header>
-        <nav class="navbar">
-          <a href="/" class="navbar-item">Home</a>
-          <a href="/dashboard" class="navbar-item">Dashboard</a>
+    <header class="has-background-info">
+        <nav class="navbar has-background-info">
+          <a href="/" class="has-text-white navbar-item">Home</a>
+          <a href="/dashboard" class="has-text-white navbar-item">Dashboard</a>
           {{#if loggedIn}}
-          <button id="logout" class="button is-primary navbar-item">logout</button>
+          <button id="logout" class="has-text-white navbar-item">logout</button>
           {{else}}
-          <a href="/login" class="button is-primary navbar-item">login</a>
+          <a href="/login" class="has-text-white navbar-item">login</a>
           {{/if}}
         </nav>
-      <h1>
-        <a href="/" class="has-background-success has-text-light">Hess Tech Blog</a>
-      </h1>
+          <h1>
+            <a href="/" class="has-text-black ml-6 is-size-2 has-background-link-light">Hess Tech Blog</a>
+          </h1>
     </header>
     <main>
       {{{ body }}}
     </main>
     <footer>
-      Tech Blog for Bloggers!
+      <h2 class="has-background-info has-text-white has-text-centered">Tech Blog for Bloggers!</h2>
     </footer>
   </div>
 {{#if loggedIn}}
