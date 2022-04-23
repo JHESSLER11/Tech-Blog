@@ -6,7 +6,10 @@
       {{#each posts as |post|}}
       {{> post-info post}}
     </div>
+    <a href="/dashboard/edit/{{post.id}}"><button>Edit</button></a>
     {{/each}}
+  {{else}}
+  <h3>You have not posted any content yet!</h3>
 {{/if}}
 
 <a href="/dashboard/add-post"><button>Add a New Post</button></a>
