@@ -82,4 +82,11 @@ router.get('/edit/:id', withAuth, (req, res) => {
     });
 });
 
+// create post route 
+router.get('/add-post/', withAuth, (req, res) => {
+  Post.findAll(
+
+  )
+})
+
 module.exports = router;
