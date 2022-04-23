@@ -1,4 +1,5 @@
 const router = require('express').Router();
+//const { where } = require('sequelize/lib');
 const sequelize = require('../config/connection');
 const { Post, User, Comments, } = require('../models');
 const withAuth = require('../utils/auth');
@@ -52,7 +53,7 @@ router.get('/edit/:id', withAuth, (req, res) => {
     ],
     include: [
       {
-        model: Comment,
+        model: Comments,
         attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
         include: {
           model: User,
@@ -83,10 +84,10 @@ router.get('/edit/:id', withAuth, (req, res) => {
 });
 
 // create post route 
-router.get('/add-post/', withAuth, (req, res) => {
-  Post.findAll(
-
-  )
-})
+router.get('/add-post', withAuth, (req, res) => {
+  res.render('add-post', 
+  { loggedIn: true, username: req.session.username });
+  return;
+});
 
 module.exports = router;
