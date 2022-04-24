@@ -3,7 +3,7 @@ async function newFormHandler(event) {
     console.log("button????")
   
     const title = document.querySelector('input[name="post-title"]').value;
-    const contents = document.querySelector('input[name="contents"]').value;
+    const contents = document.querySelector('textarea[name="contents"]').value;
     console.log("title here", title)
   
     if (title && contents) {
