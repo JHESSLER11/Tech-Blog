@@ -1,0 +1,12 @@
+/* main {
+    background-color: red;
+} */
+
+a:hover {
+    color: #3486eb;
+  }
+
+div.post {
+    background-color: rosybrown;
+    border-color: royalblue;
+}

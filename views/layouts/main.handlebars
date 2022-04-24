@@ -5,8 +5,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Hess Tech Blog</title>
+  <link rel="stylesheet" href="/stylessheet/styles.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
-  {{!-- <link rel="stylesheet" href="/stylesheet/style.css"> --}}
 </head>
 
 <body>
@@ -16,13 +16,13 @@
           <a href="/" class="has-text-white navbar-item">Home</a>
           <a href="/dashboard" class="has-text-white navbar-item">Dashboard</a>
           {{#if loggedIn}}
-          <button id="logout" class="has-text-white navbar-item">logout</button>
+          <button id="logout" class="button is-info navbar-item m-2">logout</button>
           {{else}}
           <a href="/login" class="has-text-white navbar-item">login</a>
           {{/if}}
         </nav>
           <h1>
-            <a href="/" class="has-text-black ml-6 is-size-2 has-background-link-light">Hess Tech Blog</a>
+            <a href="/" class="has-text-white ml-6 is-size-2">Hess Tech Blog</a>
           </h1>
     </header>
     <main>
