@@ -1,6 +1,6 @@
-const User = require('./Users');
-const Comments = require('./Comments');
-const Post = require("./Post")
+const User = require('./users');
+const Comments = require('./comments');
+const Post = require("./post")
 
 
 //associations 
